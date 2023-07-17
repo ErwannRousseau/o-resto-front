@@ -1,5 +1,11 @@
 # How to install project on your local
 
+> Connecting on your server ssh, exemple :
+
+```bash
+ ssh student@{{YOUR_SERVER_NAME}}-server.eddi.cloud
+```
+
 1. Create a new folder `oresto`
 
 ```bash
