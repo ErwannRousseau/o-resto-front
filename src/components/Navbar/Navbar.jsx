@@ -305,11 +305,7 @@ function Navbar() {
                 <ul className="dropdown-user-edit-list">
                   {userInfos.roles.includes('ROLE_ADMIN') && (
                     <li className="dropdown-user-edit-item">
-                      <a
-                        href="http://felixpicot1989-server.eddi.cloud/projet-o-resto-back/public/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href={urlBackOffice} target="_blank" rel="noopener noreferrer">
                         BackOffice
                       </a>
                     </li>
