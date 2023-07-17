@@ -1,66 +1,126 @@
 # How to install project on your local
 
-Clone this repo :
-
-```
-git clone git@github.com:O-clock-Radium/projet-o-resto-front.git
-```
-
-Go on the folder `projet-o-resto-front`
-
-Make sure you have at least node version 14 and run this to install dependencies :
+1. Create a new folder `oresto`
 
 ```bash
-npm install
+mkdir /var/www/html/oresto
+cd /var/www/html/oresto
 ```
 
-To build the app, run this :
+2. Clone there repos :
 
 ```bash
-npm run build
+git clone git@github.com:ErwannRousseau/o-resto-front.git
+git clone git@github.com:ErwannRousseau/o-resto-back.git
 ```
 
-and then a new folder "dist" are created, to see the build run this :
+3. Create Apache Configuration File
+   Navigate to the /etc/apache2/sites-available directory:
 
 ```bash
-npm run preview
+cd /etc/apache2/sites-available
 ```
 
-and clik on the link who display in your terminal. That's all.
-
-**Or** you can upload the project to your server.
-Don't forget to make DocumentRoot point to the folder "dist"
-
-To change your Document Root on your sever run this:
+4. Create a new file called oresto.conf:
 
 ```bash
-sudo vi /etc/apache2/sites-available/000-default.conf
+sudo vi oresto.conf
 ```
 
-**or**
+Add the following content to the file:
+
+**Important: Make sure to replace {{YOUR_SERVER_NAME}} with your actual server name.**
+
+```apache
+<VirtualHost *:80>
+    ServerName http://{{YOUR_SERVER_NAME}}-server.eddi.cloud
+    DocumentRoot /var/www/html
+
+    Alias /o-resto /var/www/html/oresto/o-resto-front/dist/
+    <Directory /var/www/html/oresto/o-resto-front/dist>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+        Require all granted
+
+        RewriteEngine On
+        RewriteBase /o-resto
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^ . [L]
+    </Directory>
+
+    Alias /o-resto-back /var/www/html/oresto/o-resto-back/public
+    <Directory /var/www/html/oresto/o-resto-back/public>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+        Require all granted
+
+        <IfModule mod_headers.c>
+            Header set Access-Control-Allow-Origin "http://{{YOUR_SERVER_NAME}}-server.eddi.cloud"
+            Header set Access-Control-Allow-Methods "GET, POST, PATCH, DELETE, PUT"
+            Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+        </IfModule>
+
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+> To replace faster, run this command in Vim editor :
+> `:%s/{{YOUR_SERVER_NAME}}/YOUR_REPLACEMENT/g`
+
+> change YOUR_REPLACEMENT by yours
+
+1. Enable the Apache Rewrite Module and the Headers Module:
+   Run the following command to enable the rewrite module:
 
 ```bash
-sudo nano /etc/apache2/sites-available/000-default.conf
+sudo a2enmod rewrite
+sudo a2enmod headers
 ```
 
-in this file change the line where DocumentRoot are write.
-Probably your DocumentRoot are like that : `/var/www/html`
-Change that with de root of your repo, some thing like that:
-
-```bash
-{{ROOT-OF-YOUR-REPO}}/dist
-```
-
-Don't forget the `/dist`
-
-And then save !
-
-Restart apache2, run this :
+6. Restart Apache
+   Run the following command to restart Apache:
 
 ```bash
 sudo service apache2 restart
 ```
 
-Go to your url
+7. Update the .env File
 
-And it work !
+   ```bash
+   vi .env
+   ```
+
+   In the .env file, update the VITE_BASE_URL_BACKOFFICE and VITE_BASE_URL
+
+```bash
+http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto-back
+http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto
+```
+
+Run this :
+`:%s/{{YOUR_SERVER_NAME}}/YOUR_REPLACEMENT/g`
+
+1. Install and Build the Front-End Project
+   Go to the front-end project directory and run the following commands:
+
+```bash
+npm install
+npm run build
+```
+
+9. Access the Projects
+   The front-end of your site is now accessible at the following URL:
+
+```bash
+http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto
+```
+
+And the back-end is accessible at:
+
+```bash
+http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto-back
+```
