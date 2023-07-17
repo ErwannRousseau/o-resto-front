@@ -96,19 +96,24 @@ sudo service apache2 restart
 
 7. Update the .env File
 
-   ```bash
-   vi .env
-   ```
+Go to the folder :
+```bash
+cd /var/www/html/oresto/o-resto-front
+```
+and run this :
+```bash
+vi .env
+```
 
-   In the .env file, update the VITE_BASE_URL_BACKOFFICE and VITE_BASE_URL
+In the .env file, update the VITE_BASE_URL_BACKOFFICE and VITE_BASE_URL
 
 ```bash
-http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto-back
-http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto
+http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto-back
+http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto
 ```
 
 Run this :
-`:%s/{{YOUR_SERVER_NAME}}/YOUR_REPLACEMENT/g`
+`:%s/{{YOUR_NAME_SERVER}}/YOUR_REPLACEMENT/g`
 
 1. Install and Build the Front-End Project
    Go to the front-end project directory and run the following commands:
@@ -122,11 +127,11 @@ npm run build
    The front-end of your site is now accessible at the following URL:
 
 ```bash
-http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto
+http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto
 ```
 
 And the back-end is accessible at:
 
 ```bash
-http://{{YOUR_SERVER_NAME}}-server.eddi.cloud/o-resto-back
+http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto-back
 ```
