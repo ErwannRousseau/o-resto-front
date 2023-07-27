@@ -73,11 +73,15 @@ Add the following content to the file:
 
 > change YOUR_REPLACEMENT by yours
 
-1. Enable the Apache Rewrite Module and the Headers Module:
+1. Enable the Apache Headers Module:
    Run the following command to enable the rewrite module:
 
 ```bash
 sudo a2enmod headers
+```
+and create a link to enabled the oresto.conf
+```bash
+sudo ln -s /etc/apache2/sites-available/oresto.conf /etc/apache2/sites-enabled/
 ```
 
 6. Restart Apache
