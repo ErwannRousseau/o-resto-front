@@ -77,7 +77,6 @@ Add the following content to the file:
    Run the following command to enable the rewrite module:
 
 ```bash
-sudo a2enmod rewrite
 sudo a2enmod headers
 ```
 
