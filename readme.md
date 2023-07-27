@@ -47,12 +47,6 @@ Add the following content to the file:
         Options -Indexes +FollowSymLinks
         AllowOverride All
         Require all granted
-
-        RewriteEngine On
-        RewriteBase /o-resto
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule ^ . [L]
     </Directory>
 
     Alias /o-resto-back /var/www/html/oresto/o-resto-back/public
