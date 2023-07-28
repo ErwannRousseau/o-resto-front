@@ -3,13 +3,13 @@
 .ReviewForm {
   width: 80%;
   margin: 3% auto;
-  font-family: vars.$texte-police;
+  font-family: vars.$font-text;
 
   .title {
-    font-size: vars.$titre-size;
-    font-family: vars.$titre-police;
-    font-weight: vars.$titre-weight;
-    color: vars.$gold;
+    font-size: vars.$font-size-title;
+    font-family: vars.$font-title;
+    font-weight: vars.$font-weight-title;
+    color: vars.$color-gold-intense;
     text-align: center;
     margin-bottom: 1rem;
   }
@@ -54,7 +54,7 @@
       margin: 1rem 0;
 
       legend {
-        font-family: vars.$texte-police;
+        font-family: vars.$font-text;
       }
     }
 
@@ -63,19 +63,19 @@
       font-size: 0.9rem;
       width: 100px;
       padding: 6px 12px;
-      background-color: vars.$gold;
-      color: vars.$black-color;
+      background-color: vars.$color-gold-intense;
+      color: vars.$color-black;
       font-size: 1rem;
       font-weight: bold;
       text-decoration: none;
       border: none;
       border-radius: 4px;
-      // font-family: vars.$texte-police;
+      // font-family: vars.$font-text;
       transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
       &:hover {
-        background-color: vars.$black-color;
-        color: vars.$gold;
+        background-color: vars.$color-black;
+        color: vars.$color-gold-intense;
       }
     }
 
@@ -85,7 +85,7 @@
 
       em {
         text-decoration: underline;
-        color: vars.$gold;
+        color: vars.$color-gold-intense;
 
         &:hover {
           cursor: pointer;

@@ -8,15 +8,15 @@
     h2 {
       font-size: 3rem;
       font-weight: bold;
-      font-family: vars.$titre-police;
-      color: vars.$gold;
+      font-family: vars.$font-title;
+      color: vars.$color-gold-intense;
       margin-bottom: 2rem;
     }
 
     p {
       line-height: 1.3rem;
       font-size: 1.2rem;
-      font-family: vars.$texte-police;
+      font-family: vars.$font-text;
     }
   }
 }

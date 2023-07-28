@@ -5,9 +5,9 @@
 
   h1 {
     text-align: center;
-    font-family: vars.$titre-police;
-    font-weight: vars.$titre-weight;
-    color: vars.$gold;
+    font-family: vars.$font-title;
+    font-weight: vars.$font-weight-title;
+    color: vars.$color-gold-intense;
     font-size: 2.5rem;
   }
 
@@ -16,7 +16,7 @@
     padding-top: 30px;
     width: 350px;
 
-    font-family: vars.$texte-police;
+    font-family: vars.$font-text;
     font-size: 1.3rem;
   }
 
@@ -30,7 +30,7 @@
       .explication {
         font-size: 0.8rem;
         font-family: Arial, Helvetica, sans-serif;
-        color: vars.$grey-color;
+        color: vars.$color-grey;
       }
     }
 
@@ -47,7 +47,7 @@
       margin-top: 0.4rem;
 
       &:focus {
-        border-color: vars.$gold;
+        border-color: vars.$color-gold-intense;
         border-bottom-width: 2px;
       }
     }
@@ -73,7 +73,7 @@
       font-size: 0.8rem;
       font-family: Arial, Helvetica, sans-serif;
       span {
-        color: vars.$grey-color;
+        color: vars.$color-grey;
       }
     }
 
@@ -81,19 +81,19 @@
       display: block;
       margin: 45px auto;
       padding: 6px 12px;
-      background-color: vars.$gold;
-      color: vars.$black-color;
+      background-color: vars.$color-gold-intense;
+      color: vars.$color-black;
       font-size: 1.2rem;
       font-weight: bold;
       text-decoration: none;
       border: none;
       border-radius: 4px;
-      font-family: vars.$texte-police;
+      font-family: vars.$font-text;
       transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
       &:hover {
-        background-color: vars.$black-color;
-        color: vars.$gold;
+        background-color: vars.$color-black;
+        color: vars.$color-gold-intense;
       }
     }
   }
@@ -102,7 +102,7 @@
 .loader {
   border: 5px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 5px solid vars.$gold;
+  border-top: 5px solid vars.$color-gold-intense;
   width: 50px;
   height: 50px;
   -webkit-animation: spin 2s linear infinite;

@@ -3,9 +3,9 @@
 // Mobile (en dessous de 768px)
 .Footer {
   border-top: 1px solid rgba(148, 148, 148, 0.493);
-  background: vars.$grey-color;
-  color: vars.$white-color;
-  font-family: vars.$texte-police;
+  background: vars.$color-grey;
+  color: vars.$color-white;
+  font-family: vars.$font-text;
   overflow-y: visible;
 
   .infos-pratiques {
@@ -30,7 +30,7 @@
       }
 
       a {
-        color: vars.$gold-color;
+        color: vars.$color-gold;
       }
     }
 
