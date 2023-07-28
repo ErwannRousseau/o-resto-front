@@ -47,12 +47,6 @@ Add the following content to the file:
         Options -Indexes +FollowSymLinks
         AllowOverride All
         Require all granted
-
-        RewriteEngine On
-        RewriteBase /o-resto
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule ^ . [L]
     </Directory>
 
     Alias /o-resto-back /var/www/html/oresto/o-resto-back/public
@@ -79,12 +73,15 @@ Add the following content to the file:
 
 > change YOUR_REPLACEMENT by yours
 
-1. Enable the Apache Rewrite Module and the Headers Module:
+1. Enable the Apache Headers Module:
    Run the following command to enable the rewrite module:
 
 ```bash
-sudo a2enmod rewrite
 sudo a2enmod headers
+```
+and create a link to enabled the oresto.conf
+```bash
+sudo ln -s /etc/apache2/sites-available/oresto.conf /etc/apache2/sites-enabled/
 ```
 
 6. Restart Apache
@@ -97,10 +94,13 @@ sudo service apache2 restart
 7. Update the .env File
 
 Go to the folder :
+
 ```bash
 cd /var/www/html/oresto/o-resto-front
 ```
+
 and run this :
+
 ```bash
 vi .env
 ```
