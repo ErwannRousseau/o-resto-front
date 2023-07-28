@@ -97,10 +97,13 @@ sudo service apache2 restart
 7. Update the .env File
 
 Go to the folder :
+
 ```bash
 cd /var/www/html/oresto/o-resto-front
 ```
+
 and run this :
+
 ```bash
 vi .env
 ```
