@@ -16,12 +16,12 @@
     padding-bottom: 10px;
 
     &:not(:last-child) {
-      border-bottom: 1px solid vars.$light-grey;
+      border-bottom: 1px solid vars.$color-light-grey;
     }
 
     .product-description {
       font-size: 0.9rem;
-      color: vars.$grey-color;
+      color: vars.$color-grey;
     }
     .product-left {
       width: 100%;

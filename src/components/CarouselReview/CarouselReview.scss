@@ -10,11 +10,11 @@
   padding: 20px 0;
 
   .title {
-    font-size: vars.$titre-size;
-    font-family: vars.$titre-police;
+    font-size: vars.$font-size-title;
+    font-family: vars.$font-title;
     font-weight: bold;
     margin-bottom: 2rem;
-    color: vars.$gold;
+    color: vars.$color-gold-intense;
   }
 
   .wrapper {
@@ -32,7 +32,7 @@
       text-align: center;
       line-height: 50px;
       background: #fff;
-      color: vars.$gold;
+      color: vars.$color-gold-intense;
       border-radius: 50%;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
       transform: translateY(-50%);
@@ -100,7 +100,7 @@
         flex-direction: column;
         gap: 0.8em;
         padding: 0 2rem;
-        border: 2px solid vars.$gold;
+        border: 2px solid vars.$color-gold-intense;
         border-radius: 1rem;
         background-color: rgb(255, 255, 255);
 
@@ -143,7 +143,7 @@
         .user-name {
           font-weight: 500;
           font-size: 1.56rem;
-          font-family: vars.$texte-police;
+          font-family: vars.$font-text;
         }
 
         .date {

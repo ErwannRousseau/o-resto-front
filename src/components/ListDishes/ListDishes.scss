@@ -13,7 +13,7 @@
       text-align: center;
       padding-bottom: 1rem;
       font-size: 1.5rem;
-      font-family: vars.$titre-police;
+      font-family: vars.$font-title;
       font-weight: bold;
       text-decoration: underline;
 
@@ -35,7 +35,7 @@
       width: 100%;
       .dishe-description {
         font-size: 0.9rem;
-        color: vars.$grey-color;
+        color: vars.$color-grey;
       }
 
       .dishe-header {

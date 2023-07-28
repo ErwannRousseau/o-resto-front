@@ -16,7 +16,7 @@
     align-items: center;
     &:not(:last-child) {
       margin: 1rem 0;
-      border-bottom: 1px solid vars.$light-grey;
+      border-bottom: 1px solid vars.$color-light-grey;
       padding-bottom: 10px;
     }
 
@@ -26,13 +26,13 @@
       .menu-title {
         margin-bottom: 0.7rem;
         font-size: 1.7rem;
-        font-family: vars.$titre-police;
+        font-family: vars.$font-title;
       }
 
       .menu-price {
         font-size: 1.1rem;
-        font-family: vars.$titre-police;
-        font-weight: vars.$titre-weight;
+        font-family: vars.$font-title;
+        font-weight: vars.$font-weight-title;
       }
     }
 
