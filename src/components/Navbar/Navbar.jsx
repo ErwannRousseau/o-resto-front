@@ -98,7 +98,7 @@ function Navbar() {
         {/* Desktop Navbar */}
         <div className="Navbar-desktop">
           <ul className="Navbar-list">
-            <NavLink to="/" className="Navbar-list-item">
+            <NavLink to="/" className="Navbar-list-item" onClick={handleScrollToTop}>
               Accueil
             </NavLink>
             <div className="dropdown">
@@ -107,6 +107,7 @@ function Navbar() {
                 to="/carte/menus"
                 // We add the active class 'manually' to the "Map" item if the url starts with "/map", so that if we're on the "/map/drinks" path, the active class is put on this item.
                 className={`Navbar-list-item ${location.pathname.startsWith('/carte') ? 'active' : ''}`}
+                onClick={handleScrollToTop}
               >
                 La carte
               </Link>
@@ -115,19 +116,29 @@ function Navbar() {
                 {!openDropDown ? <FaChevronRight /> : <FaChevronDown />}
                 {openDropDown && (
                   <ul className="dropdown-list">
-                    <Link to="/carte/menus">Menu</Link>
-                    <Link to="/carte/entrees">Entrées</Link>
-                    <Link to="/carte/plats">Plats</Link>
-                    <Link to="/carte/desserts">Desserts</Link>
-                    <Link to="/carte/boissons">Boissons</Link>
+                    <Link to="/carte/menus" onClick={handleScrollToTop}>
+                      Menu
+                    </Link>
+                    <Link to="/carte/entrees" onClick={handleScrollToTop}>
+                      Entrées
+                    </Link>
+                    <Link to="/carte/plats" onClick={handleScrollToTop}>
+                      Plats
+                    </Link>
+                    <Link to="/carte/desserts" onClick={handleScrollToTop}>
+                      Desserts
+                    </Link>
+                    <Link to="/carte/boissons" onClick={handleScrollToTop}>
+                      Boissons
+                    </Link>
                   </ul>
                 )}
               </div>
             </div>
-            <NavLink to="/reservations-contact" className="Navbar-list-item">
+            <NavLink to="/reservations-contact" className="Navbar-list-item" onClick={handleScrollToTop}>
               Réserver/Contact
             </NavLink>
-            <NavLink className="Navbar-list-item" to="/avis">
+            <NavLink className="Navbar-list-item" to="/avis" onClick={handleScrollToTop}>
               Donnez votre avis
             </NavLink>
           </ul>
@@ -248,19 +259,49 @@ function Navbar() {
                 </div>
                 {openDropDown && (
                   <ul className="dropdown-list">
-                    <Link onClick={handleToggleNav} to="/carte/menus">
+                    <Link
+                      onClick={() => {
+                        handleToggleNav();
+                        handleScrollToTop();
+                      }}
+                      to="/carte/menus"
+                    >
                       Menu
                     </Link>
-                    <Link onClick={handleToggleNav} to="/carte/entrees">
+                    <Link
+                      onClick={() => {
+                        handleToggleNav();
+                        handleScrollToTop();
+                      }}
+                      to="/carte/entrees"
+                    >
                       Entrées
                     </Link>
-                    <Link onClick={handleToggleNav} to="/carte/plats">
+                    <Link
+                      onClick={() => {
+                        handleToggleNav();
+                        handleScrollToTop();
+                      }}
+                      to="/carte/plats"
+                    >
                       Plats
                     </Link>
-                    <Link onClick={handleToggleNav} to="/carte/desserts">
+                    <Link
+                      onClick={() => {
+                        handleToggleNav();
+                        handleScrollToTop();
+                      }}
+                      to="/carte/desserts"
+                    >
                       Desserts
                     </Link>
-                    <Link onClick={handleToggleNav} to="/carte/boissons">
+                    <Link
+                      onClick={() => {
+                        handleToggleNav();
+                        handleScrollToTop();
+                      }}
+                      to="/carte/boissons"
+                    >
                       Boissons
                     </Link>
                   </ul>
