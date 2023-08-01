@@ -105,7 +105,7 @@ cd /var/www/html/oresto/o-resto-front
 and run this :
 
 ```bash
-vi .env.production
+vi .env.production.local
 ```
 
 In the .env.production file, copy/paste and update `{{YOUR_NAME_SERVER}}` by your real server name :
@@ -126,7 +126,7 @@ VITE_BASE_URL_BACKOFFICE=http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto-b
 
 ```bash
 npm install
-npm run build:prod
+npm run build
 ```
 
 9. Access the Projects
@@ -153,22 +153,11 @@ git clone git@github.com:ErwannRousseau/o-resto-back.git
 
 In **o-resto-front** folder run this :
 
-```
-vi .env.develepment
-```
-
-Copy/Paste this :
-
-```bash
-VITE_BASE_URL=http://127.0.0.1:8000
-VITE_BASE_URL_BACKOFFICE=http://127.0.0.1:8000/public
-```
-
-and then run this :
-
 ```bash
 npm install
 npm run dev
 ```
+
+the server are launch on **<http://localhost:5173>**
 
 and setup the backend folder for dev mode
