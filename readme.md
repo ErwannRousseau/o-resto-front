@@ -1,9 +1,9 @@
-# How to install project on your local
+# How to install project on your VM Cloud
 
 > Connecting on your server ssh, exemple :
 
 ```bash
- ssh student@{{YOUR_SERVER_NAME}}-server.eddi.cloud
+ ssh student@{{YOUR_NAME_SERVER}}-server.eddi.cloud
 ```
 
 1. Create a new folder `oresto`
@@ -35,11 +35,11 @@ sudo vi oresto.conf
 
 Add the following content to the file:
 
-**Important: Make sure to replace {{YOUR_SERVER_NAME}} with your actual server name.**
+**Important: Make sure to replace {{YOUR_NAME_SERVER}} with your actual server name.**
 
 ```apache
 <VirtualHost *:80>
-    ServerName http://{{YOUR_SERVER_NAME}}-server.eddi.cloud
+    ServerName http://{{YOUR_NAME_SERVER}}-server.eddi.cloud
     DocumentRoot /var/www/html
 
     Alias /o-resto /var/www/html/oresto/o-resto-front/dist/
@@ -56,7 +56,7 @@ Add the following content to the file:
         Require all granted
 
         <IfModule mod_headers.c>
-            Header set Access-Control-Allow-Origin "http://{{YOUR_SERVER_NAME}}-server.eddi.cloud"
+            Header set Access-Control-Allow-Origin "http://{{YOUR_NAME_SERVER}}-server.eddi.cloud"
             Header set Access-Control-Allow-Methods "GET, POST, PATCH, DELETE, PUT"
             Header set Access-Control-Allow-Headers "Content-Type, Authorization"
         </IfModule>
@@ -69,7 +69,8 @@ Add the following content to the file:
 ```
 
 > To replace faster, run this command in Vim editor :
-> `:%s/{{YOUR_SERVER_NAME}}/YOUR_REPLACEMENT/g`
+> Tap `:` to open the command line
+> and copy/paste this : `%s/{{YOUR_NAME_SERVER}}/YOUR_REPLACEMENT/g`
 
 > change YOUR_REPLACEMENT by yours
 
@@ -79,7 +80,9 @@ Add the following content to the file:
 ```bash
 sudo a2enmod headers
 ```
+
 and create a link to enabled the oresto.conf
+
 ```bash
 sudo ln -s /etc/apache2/sites-available/oresto.conf /etc/apache2/sites-enabled/
 ```
@@ -102,25 +105,28 @@ cd /var/www/html/oresto/o-resto-front
 and run this :
 
 ```bash
-vi .env
+vi .env.production
 ```
 
-In the .env file, update the VITE_BASE_URL_BACKOFFICE and VITE_BASE_URL
+In the .env.production file, copy/paste and update `{{YOUR_NAME_SERVER}}` by your real server name :
 
 ```bash
-http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto-back
-http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto
+VITE_BASE_URL=http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/oresto/o-resto-back/public
+VITE_BASE_URL_BACKOFFICE=http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto-back/
 ```
 
-Run this :
-`:%s/{{YOUR_NAME_SERVER}}/YOUR_REPLACEMENT/g`
+> To replace faster, run this command in Vim editor :
+> Tap `:` to open the command line
+> and copy/paste this : `%s/{{YOUR_NAME_SERVER}}/YOUR_REPLACEMENT/g`
+
+> change YOUR_REPLACEMENT by yours
 
 1. Install and Build the Front-End Project
    Go to the front-end project directory and run the following commands:
 
 ```bash
 npm install
-npm run build
+npm run build:prod
 ```
 
 9. Access the Projects
@@ -135,3 +141,34 @@ And the back-end is accessible at:
 ```bash
 http://{{YOUR_NAME_SERVER}}-server.eddi.cloud/o-resto-back
 ```
+
+# How to install project on local
+
+Clone the repos
+
+```bash
+git clone git@github.com:ErwannRousseau/o-resto-front.git
+git clone git@github.com:ErwannRousseau/o-resto-back.git
+```
+
+In **o-resto-front** folder run this :
+
+```
+vi .env.develepment
+```
+
+Copy/Paste this :
+
+```bash
+VITE_BASE_URL=http://127.0.0.1:8000
+VITE_BASE_URL_BACKOFFICE=http://127.0.0.1:8000/public
+```
+
+and then run this :
+
+```bash
+npm install
+npm run dev
+```
+
+and setup the backend folder for dev mode
