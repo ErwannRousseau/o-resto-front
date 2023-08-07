@@ -249,7 +249,7 @@ function Navbar() {
                       handleToggleNav();
                       handleScrollToTop();
                     }}
-                    to="/menus"
+                    to="/carte/menus"
                   >
                     La carte
                   </NavLink>
