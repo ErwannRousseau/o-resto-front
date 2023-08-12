@@ -90,7 +90,14 @@ function Navbar() {
     <>
       <nav className="Navbar">
         {/* when you click on the logo, you return to the home page and go to the very top of the page */}
-        <NavLink to="/" className="logo-oresto" onClick={handleScrollToTop}>
+        <NavLink
+          to="/"
+          className="logo-oresto"
+          onClick={() => {
+            handleScrollToTop();
+            setNav(false);
+          }}
+        >
           <img src={logoOresto} alt="logo-oresto" className="logo-oresto" />
         </NavLink>
         {/* If you are on mobile and the navbar is open, the title is displayed at the top of the navbar */}
