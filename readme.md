@@ -39,7 +39,7 @@ Add the following content to the file:
 
 ```apache
 <VirtualHost *:80>
-    ServerName http://{{YOUR_NAME_SERVER}}-server.eddi.cloud
+    ServerName erwannrousseau-server.eddi.cloud
     DocumentRoot /var/www/html
 
     Alias /o-resto /var/www/html/oresto/o-resto-front/dist/
@@ -47,6 +47,12 @@ Add the following content to the file:
         Options -Indexes +FollowSymLinks
         AllowOverride All
         Require all granted
+
+        RewriteEngine On
+        RewriteBase /o-resto/
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /o-resto/index.html
     </Directory>
 
     Alias /o-resto-back /var/www/html/oresto/o-resto-back/public
@@ -55,12 +61,9 @@ Add the following content to the file:
         AllowOverride All
         Require all granted
 
-        <IfModule mod_headers.c>
-            Header set Access-Control-Allow-Origin "http://{{YOUR_NAME_SERVER}}-server.eddi.cloud"
-            Header set Access-Control-Allow-Methods "GET, POST, PATCH, DELETE, PUT"
-            Header set Access-Control-Allow-Headers "Content-Type, Authorization"
-        </IfModule>
-
+        Header set Access-Control-Allow-Origin "http://erwannrousseau-server.eddi.cloud"
+        Header set Access-Control-Allow-Methods "GET, POST, PATCH, DELETE, PUT"
+        Header set Access-Control-Allow-Headers "Content-Type, Authorization"
     </Directory>
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -71,13 +74,12 @@ Add the following content to the file:
 > To replace faster, run this command in Vim editor :
 > Tap `:` to open the command line
 > and copy/paste this : `%s/{{YOUR_NAME_SERVER}}/YOUR_REPLACEMENT/g`
-
 > change YOUR_REPLACEMENT by yours
 
-1. Enable the Apache Headers Module:
-   Run the following command to enable the rewrite module:
+1. Enable the Apache RewriteEngine and Headers Module, run the following command to enable :
 
 ```bash
+sudo a2enmod rewrite
 sudo a2enmod headers
 ```
 
@@ -87,7 +89,7 @@ and create a link to enabled the oresto.conf
 sudo ln -s /etc/apache2/sites-available/oresto.conf /etc/apache2/sites-enabled/
 ```
 
-6. Restart Apache
+1. Restart Apache
    Run the following command to restart Apache:
 
 ```bash
